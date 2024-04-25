@@ -1,0 +1,3 @@
+venv/
+label_print/__pycache__/
+label_print/ui/__pycache__/
