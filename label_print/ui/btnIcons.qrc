@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="btnIcon">
+    <file>GearAndKey.bmp</file>
+  </qresource>
+</RCC>
