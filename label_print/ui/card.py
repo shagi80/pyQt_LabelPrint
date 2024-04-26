@@ -9,29 +9,44 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import pyqtSlot
 
 
-class Ui_Frame(object):
+class Ui_HistoryCardFrame(object):
     def setupUi(self, Frame):
         Frame.setObjectName("Frame")
         Frame.resize(460, 100)
         Frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        Frame.setStyleSheet("background-color: rgb(255, 255, 255); border: 1px solid rgb(100, 100, 100);border-radius: 5px;")
         self.widget = QtWidgets.QWidget(Frame)
         self.widget.setGeometry(QtCore.QRect(10, 10, 100, 80))
+        self.widget.setStyleSheet("border: none;")
         self.widget.setStyleSheet("background-color: rgb(147, 147, 147);")
         self.widget.setObjectName("widget")
         self.label = QtWidgets.QLabel(Frame)
-        self.label.setGeometry(QtCore.QRect(140, 10, 311, 21))
+        self.label.setStyleSheet("border: none;")
+        self.label.setGeometry(QtCore.QRect(120, 10, 300, 21))
         self.label.setObjectName("label")
         self.label_2 = QtWidgets.QLabel(Frame)
-        self.label_2.setGeometry(QtCore.QRect(140, 45, 311, 16))
+        self.label_2.setStyleSheet("border: none;")
+        self.label_2.setGeometry(QtCore.QRect(120, 45, 300, 16))
         self.label_2.setObjectName("label_2")
         self.label_3 = QtWidgets.QLabel(Frame)
-        self.label_3.setGeometry(QtCore.QRect(140, 70, 311, 16))
+        self.label_3.setStyleSheet("border: none;")
+        self.label_3.setGeometry(QtCore.QRect(120, 70, 300, 16))
         self.label_3.setObjectName("label_3")
 
         self.retranslateUi(Frame)
         QtCore.QMetaObject.connectSlotsByName(Frame)
+
+    def mouseDoubleClickEvent(self, event):
+        print(event)
+        pass
+
+    def addToWidget(self, parentName, x, y):
+        self.setParent(parentName)
+        self.setGeometry(QtCore.QRect(x, y, parentName.width() - 50, self.height()))
+        self.show()
 
     def retranslateUi(self, Frame):
         _translate = QtCore.QCoreApplication.translate
