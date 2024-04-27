@@ -1,13 +1,6 @@
 import sys  # sys нужен для передачи argv в QApplication
 from PyQt5 import QtWidgets, QtCore
 from ui.mainWindow import Ui_MainWindow # Это наш конвертированный файл дизайна
-from ui.card import Ui_HistoryCardFrame
-
-
-class HistoryCard(QtWidgets.QFrame, Ui_HistoryCardFrame):
-    def __init__(self):
-        super().__init__()
-        self.setupUi(self)
 
 
 class ExampleApp(QtWidgets.QMainWindow, Ui_MainWindow):
@@ -18,15 +11,7 @@ class ExampleApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setupUi(self)  # Это нужно для инициализации нашего дизайна
     
     def SettingsButtonClick(self):
-        areaHeight = 0
-        for i in range(5):
-            card = HistoryCard()
-            y = 10 + (card.height() + 10) * i
-            card.addToWidget(self.scrollAreaWidgetContents, 20, y)
-            areaHeight = y + card.height() + 10
-        self.scrollAreaWidgetContents.setMinimumSize(
-            QtCore.QSize(0, areaHeight)
-        )
+        self.StoryContents.addItemList('1234567890')
 
 
 def main():
